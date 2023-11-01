@@ -8988,7 +8988,7 @@ __parse_repo_json_python() {
 
   # Using latest, grab the right
   # version from the repo.json
-  _JSON_VERSION=$(python - <<-EOF
+  _JSON_VERSION=$(python3 - <<-EOF
 import json, urllib.request
 url = "https://repo.saltproject.io/salt/py3/macos/repo.json"
 response = urllib.request.urlopen(url)
@@ -9007,6 +9007,9 @@ __macosx_get_packagesite_onedir() {
     if [ -n "$_PY_EXE" ] && [ "$_PY_MAJOR_VERSION" -eq 3 ]; then
         __PY_VERSION_REPO="py3"
     fi
+
+    echoinfo "Python version: $(python -V)"
+    echoinfo "Python binary used: $(command -v python)"
 
     if [ "$(echo "$_ONEDIR_REV" | grep -E '^(latest)$')" != "" ]; then
       _PKG_VERSION=$(__parse_repo_json_python)

@@ -4,7 +4,7 @@ driver:
 
 provisioner:
   sudo: true
-  salt_bootstrap_options: -MP stable %s
+  salt_bootstrap_options: -DMP stable %s
   init_environment: |
     echo 'auto_accept: true' > /tmp/auto-accept-keys.conf
     sudo mkdir -p /etc/salt/master.d
