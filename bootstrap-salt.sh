@@ -7928,7 +7928,7 @@ config_salt() {
 
     # Let's create the necessary directories
     [ -d "$_SALT_ETC_DIR" ] || mkdir "$_SALT_ETC_DIR" || return 1
-    [ -d "$_PKI_DIR" ] || (mkdir -p "$_PKI_DIR" && chmod 700 "$_PKI_DIR") || return 1
+    [ -d "$_PKI_DIR" ] || (mkdir -p "$_PKI_DIR" && chmod 755 "$_PKI_DIR") || return 1
 
     # If -C or -F was passed, we don't need a .bak file for the config we're updating
     # This is used in the custom master/minion config file checks below
